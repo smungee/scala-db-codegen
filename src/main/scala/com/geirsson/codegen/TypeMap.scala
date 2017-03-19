@@ -22,13 +22,15 @@ object TypeMap {
     "text" -> "String",
     "float8" -> "Double",
     "numeric" -> "BigDecimal",
+    "int2" -> "Short",
     "int4" -> "Int",
     "int8" -> "Long",
     "bool" -> "Boolean",
     "varchar" -> "String",
     "serial" -> "Int",
     "bigserial" -> "Long",
-    "timestamp" -> "java.util.Date",
+    "timestamp" -> "java.time.LocalDateTime",
+    "timestamptz" -> "java.time.LocalDate",
     "bytea" -> "Array[Byte]", // PostgreSQL
     "uuid" -> "java.util.UUID", // H2, PostgreSQL
     "json" -> "String" // PostgreSQL

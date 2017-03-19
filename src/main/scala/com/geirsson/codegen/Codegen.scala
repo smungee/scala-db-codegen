@@ -29,7 +29,7 @@ case class CodegenOptions(
     @HelpMessage("only tested with postgresql") jdbcDriver: String = "org.postgresql.Driver",
     @HelpMessage(
       "top level imports of generated file"
-    ) imports: String = """import io.getquill.WrappedValue""",
+    ) imports: String = "",
     @HelpMessage(
       "package name for generated classes"
     ) `package`: String = "tables",
@@ -178,7 +178,7 @@ case class Codegen(options: CodegenOptions, namingStrategy: NamingStrategy) {
     def toSimple = references.getOrElse(SimpleColumn(tableName, columnName))
 
     def toClass: String = {
-      s"case class ${namingStrategy.table(columnName)}(value: $scalaType) extends AnyVal with WrappedValue[$scalaType]"
+      s"case class ${namingStrategy.table(columnName)}(value: $scalaType) extends AnyVal"
     }
   }
 
